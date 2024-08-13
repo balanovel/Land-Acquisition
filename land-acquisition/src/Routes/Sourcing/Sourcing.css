@@ -1,0 +1,531 @@
+.source {
+    background-color: #008080;
+    margin: auto;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.submit-animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.loading-spinner {
+    border: 16px solid #f3f3f3;
+    /* Light grey */
+    border-top: 16px solid #59e024;
+    /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.tick-mark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 54px;
+    background-color: #000000bd;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    opacity: 0.8;
+    align-items: center;
+    /* Adjust size as needed */
+    color: green;
+    /* Adjust color as needed */
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.tick-mark.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@keyframes tickMarkAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.tick-mark.show {
+    animation: tickMarkAnimation 0.5s ease-in-out forwards;
+}
+
+/*   
+  @keyframes tick {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+} */
+
+.source-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+h5 {
+    color: #000
+}
+
+.home-icon {
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.profile-icon {
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.scrn_heading {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+    /* background: linear-gradient(to right, white, white, white); */
+    background-color: white;
+    width: 50%;
+    height: 60px;
+    margin-left: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 60px;
+    color: #008080
+}
+
+.remarks-icon.highlight {
+    color: white;
+    font-size: 22px;
+    width: 22px;
+    /* Adjust width to make the icon round */
+    height: 26px;
+    /* Adjust height to make the icon round */
+    line-height: 30px;
+    /* Center the icon vertically */
+    text-align: center;
+    /* Center the icon horizontally */
+    border-radius: 100%;
+    /* Make the icon round */
+    background-color: #008080;
+    padding: 3px;
+}
+
+.remarks-icon {
+    cursor: pointer;
+    color: #008080;
+    font-size: 22px;
+    width: 22px;
+    /* Adjust width to make the icon round */
+    height: 26px;
+    /* Adjust height to make the icon round */
+    line-height: 30px;
+    /* Center the icon vertically */
+    text-align: center;
+    /* Center the icon horizontally */
+    border-radius: 100%;
+    /* Make the icon round */
+    background-color: white;
+    padding: 3px;
+}
+
+.source-title {
+    flex: 1;
+    text-align: center;
+    font-size: 24px;
+}
+
+.source-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 50px;
+    box-sizing: border-box;
+}
+
+.list-item>.task-name {
+    flex: 1;
+}
+
+.toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.toggle-button {
+    position: relative;
+    width: 75px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 0 20px;
+}
+
+.toggle-button-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 0 5px;
+    transition: transform 0.3s;
+}
+
+.scrn_icon-check,
+.scrn_icon-close,
+.scrn_icon-pending {
+    display: none;
+}
+
+.middle .scrn_icon-pending {
+    color: white;
+    display: block;
+    font-size: 28px;
+    width: 28px;
+    height: 28px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: orange;
+}
+
+.right .scrn_icon-close {
+    color: white;
+    display: block;
+    font-size: 26px;
+    width: 26px;
+    height: 26px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: green;
+}
+
+.left .scrn_icon-check {
+    display: block;
+    color: white;
+    font-size: 28px;
+    font-weight: bolder;
+    width: 28px;
+    height: 28px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.left .scrn_icon-close,
+.left .scrn_icon-pending,
+.middle .scrn_icon-check,
+.middle .scrn_icon-close,
+.right .scrn_icon-check,
+.right .scrn_icon-pending {
+    display: none;
+}
+
+.left .toggle-button-inner {
+    transform: translateX(0);
+}
+
+.middle .toggle-button-inner {
+    transform: translateX(20px);
+}
+
+.right .toggle-button-inner {
+    transform: translateX(40px);
+}
+
+.scrn_icon-left {
+    margin-left: 10px;
+}
+
+.scrn_icon-right-notification {
+    margin-right: 10px;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* Ensure modal is on top */
+}
+
+.modal-content {
+    color: white;
+    background: #008080;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    max-height: 300px;
+    width: 100%;
+    height: auto;
+    overflow-y: auto;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: black;
+}
+
+.modal .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: red;
+}
+
+.attachment_close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    width: 25px;
+    /* Adjust width to make the icon round */
+    height: 25px;
+    /* Adjust height to make the icon round */
+    line-height: 25px;
+    /* Center the icon vertically */
+    text-align: center;
+    /* Center the icon horizontally */
+    border-radius: 100%;
+    /* Make the icon round */
+    background-color: red;
+}
+
+.modal h2 {
+    margin-top: 0;
+}
+
+.attachment-icon {
+    color: #008080;
+    font-size: 25px;
+    width: 25px;
+    /* Adjust width to make the icon round */
+    height: 26px;
+    /* Adjust height to make the icon round */
+    line-height: 30px;
+    /* Center the icon vertically */
+    text-align: center;
+    /* Center the icon horizontally */
+    border-radius: 100%;
+    /* Make the icon round */
+    background-color: white;
+    cursor: pointer;
+    padding: 3px;
+}
+
+.attachment-icon.highlight {
+    color: white;
+    font-size: 25px;
+    width: 30px;
+    /* Adjust width to make the icon round */
+    height: 26px;
+    /* Adjust height to make the icon round */
+    line-height: 30px;
+    /* Center the icon vertically */
+    text-align: center;
+    /* Center the icon horizontally */
+    border-radius: 100%;
+    /* Make the icon round */
+    background-color: #008080;
+    cursor: pointer;
+    padding: 3px;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    position: relative;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.uploading-notification {
+    margin-top: 10px;
+    color: #007bff;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.uploading-notification::before {
+    content: '';
+    border: 2px solid #007bff;
+    border-radius: 50%;
+    border-top: 2px solid transparent;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.remarks_close {
+    position: absolute;
+    background-color: red;
+    border-radius: 2px;
+    padding: 8px;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+}
+
+.submit-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border: none;
+    background-color: white;
+    color: #008080;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.scrn_icon-right-profile {
+    margin-right: 10px;
+}
+
+.attachment-icon,
+.remarks-icon {
+    font-size: 22px;
+    margin-left: 10px;
+
+}
+
+
+.remarks-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 10px;
+    color: #000;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.remarks-textarea {
+    height: 100px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin: 10px 0;
+
+}
+
+.a {
+    font-weight: 500;
+    color: white;
+    text-decoration: inherit;
+}
+
+.modal .remarks {
+    background-color: #008080;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.remarks-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border: none;
+    background-color: white;
+    color: #008080;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}

@@ -1,0 +1,357 @@
+.screening {
+    padding: 20px;
+    color: white;
+    position: relative;
+}
+
+.screen_head {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+    background: linear-gradient(to right, #005A61, #038B9C, #005A61);
+    width: 50%;
+    height: 80px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+}
+
+.icon {
+    font-size: 24px;
+    color: white;
+}
+
+.icon-left {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    color: #005A61;
+}
+
+.icon-right-notification {
+    position: absolute;
+    right: 80px;
+    top: 20px;
+    color: #005A61;
+}
+
+.TopIconsRight {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #005A61;
+}
+
+.icon-right-profile {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #61aeba;
+}
+
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.screen-card {
+    border-radius: 20px;
+    margin: 10px;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    /* Smooth transition */
+}
+
+.screen-card.highlighted {
+    color: #000000;
+}
+
+.main-text {
+    background: linear-gradient(to right, #005A61, #038B9C, #005A61);
+    border-radius: 20px;
+    padding-top: 20px;
+    width: 180px;
+    height: 120px;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+    /* Smooth transition */
+}
+
+.main-text.highlighted {
+    border-radius: 20px;
+    padding-top: 20px;
+    width: 180px;
+    height: 120px;
+    font-size: 14px;
+    color: #008080;
+    border-color: #005f67;
+    border-width: 2px;
+    border-style: solid;
+    animation: highlightmain 0.5s ease-in-out;
+}
+
+@keyframes highlightmain {
+    0% {
+        background: linear-gradient(to right, #008080, #728fa0, #008080);
+        color: #ffffff;
+    }
+
+    50% {
+        background-color: #008080;
+    }
+
+    100% {
+        background-color: #ffffff;
+        color: #008080;
+    }
+}
+
+@keyframes highlightsub {
+    0% {
+        background-color: #66b2b8;
+        color: #ffffff;
+    }
+
+    50% {
+        background-color: #7fb2b6;
+    }
+
+    100% {
+        background-color: #ffffff;
+        color: #008080;
+    }
+}
+
+
+@keyframes highlightsub {
+    0% {
+        background-color: #66b2b8;
+        color: #ffffff;
+    }
+
+    50% {
+        background-color: #7fb2b6;
+    }
+
+    100% {
+        background-color: #ffffff;
+        color: #008080;
+    }
+}
+
+
+.sub-text {
+    background-color: #66b2b8;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 16px;
+    margin-top: -20px;
+    width: 70%;
+    bottom: 10px;
+}
+
+.sub-text-highlighted {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 16px;
+    margin-top: -20px;
+    width: 70%;
+    bottom: 10px;
+    color: #008080;
+    border-color: #005f67;
+    border-width: 2px;
+    border-style: solid;
+    animation: highlightsub 0.5s ease-in-out
+}
+
+
+.grid-header {
+    font-weight: bold;
+    height: 60px;
+    background-color: #359cab;
+    border-radius: 10px;
+    align-items: center;
+    margin-top: 50px;
+    text-align: center;
+    color: white;
+}
+
+.grid-column {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.Screening-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 40px;
+    padding: 15px;
+}
+
+.grid-card {
+    background-color: #77c5d0;
+    color: #000000;
+    border-radius: 5px;
+    padding: 1%;
+    text-align: center;
+      display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+.additional-cards {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.additional-cards .screen-card {
+    margin: 0;
+    flex: 1 0 20%;
+}
+
+.card-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+.Screening-grid-container {
+    position: relative;
+}
+
+.pagination {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+}
+
+.pagination button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.records-per-page {
+    align-items: center;
+    /* Align items vertically centered */
+    gap: 10px;
+    /* Space between label and dropdown */
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    margin-right: 450px;
+}
+
+/* Styles for the "Records per page" dropdown select element */
+.records-per-page select {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+.pagination button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    font-size: 14px;
+}
+
+button,
+.icon,
+.screen-card,
+.grid-card,
+.search-container {
+    cursor: pointer;
+
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    /* border: 1px solid #ddd;
+    border-radius: 5px; */
+    padding: 5px;
+    gap: 15px;
+}
+
+.search-bar {
+    border: 2px solid #007bff;
+    border-radius: 15px;
+    outline: none;
+    padding: 4px;
+    flex-grow: 1;
+    width: 80%;
+    ;
+    /* Allows the input to take up available space */
+}
+
+search-icon {
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Adjust based on your layout */
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/* Screening.css */
+.progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust as needed to center it vertically within its parent */
+    margin-left: 100px;
+    margin-bottom: 100px;
+}

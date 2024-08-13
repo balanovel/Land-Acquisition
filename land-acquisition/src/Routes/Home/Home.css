@@ -1,0 +1,275 @@
+body {
+  background-color: #c8e5e9ff;
+  /* Set background color for the entire page */
+}
+
+.logo {
+  height: 100%;
+  padding: 1em;
+  width: 100%;
+}
+
+.header {
+  background: linear-gradient(to right, #005A61, #038B9C, #005A61);
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  color: white;
+}
+
+.icons {
+  display: flex;
+  gap: 20px;
+}
+
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 1%;
+  padding-bottom: 5%;
+  width: 100%;
+}
+
+.card {
+  background-color: #f0f0f0;
+  padding: 1em;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #026d78ff, #359cabff, #026d78ff);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Ensure the content is centered */
+  align-items: center;
+  width: 20%;
+  height: 150px; /* Adjusted height to match both sides */
+  perspective: 1000px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden; /* Ensures no overflow issues */
+
+}
+
+/* Flip card effect only for the 'Sourcing' card */
+.card.sourcing {
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+}
+
+.card.sourcing:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+
+
+}
+
+.card-front {
+  /* background: linear-gradient(90deg, #026d78ff, #359cabff, #026d78ff); */
+  z-index: 2; /* Ensure it's on top */
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; */
+}
+
+.card-back {
+  background: #026d78ff;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  padding: 1em;
+  border-radius: 20px;
+  z-index: 1; /* Ensure it's below the front */
+
+}
+
+.card-back .status {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1rem;
+  padding: 0 1em;
+  margin-bottom: 10px;
+}
+
+.card-back .status span {
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+}
+
+.card-back .status .status-label {
+  display: block;
+  font-weight: bold;
+}
+
+.card-back .status .status-value {
+  display: block;
+}
+
+
+.card img {
+  width: 40px;
+  height: 40px;
+}
+
+.card .card-text {
+  font-size: 1rem;
+  background-color: #359cabff;
+  color: #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.card .card-name {
+  color: #f0f0f0;
+  margin-left: 10px;
+  background-color: #359cabff;
+}
+
+.card .card-count {
+  color: black;
+  background-color: #f0f0f0;
+  gap: 5px;
+}
+
+
+.source {
+  background: linear-gradient(45deg, #026d78ff, #359cabff, #026d78ff);
+  padding: 20px;
+  position: relative;
+}
+
+.source_head {
+  background: white;
+  width: 60%;
+  text-align: center;
+  margin: auto;
+  padding: 10px;
+  border-radius: 50px;
+  color: #026d78ff;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  color: white;
+  position: absolute;
+}
+
+.icon-left {
+  left: 10px;
+  top: 40px;
+}
+
+.icon-right-notification {
+  right: 60px;
+  top: 40px;
+}
+
+.icon-right-profile {
+  right: 10px;
+  top: 40px;
+}
+
+.source-list {
+  list-style-type: none;
+  text-align: center;
+}
+
+.list-item {
+  color: #026d78ff;
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 10px;
+  background-color: white;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-container {
+  display: flex;
+  gap: 10px;
+}
+.card.legal {
+  background-color: #d3d3d3 !important; /* Light grey background */
+  background: linear-gradient(90deg, #d3d3d3, #c0c0c0, #d3d3d3) !important; /* Optional gradient */
+}
+.card.legal .card-front {
+  background-color: #d3d3d3; /* Grey color for Legal card front */
+}
+
+.card.lending .card-front {
+  background-color: #d3d3d3; /* Grey color for Lending card front */
+}
+
+.card.account .card-front {
+  background-color: #d3d3d3; /* Grey color for Account card front */
+}
+
+.card.legal,
+.card.lending,
+.card.account {
+  background-color: #d3d3d3; /* Example background color */
+}
+
+.card.legal .card-back,
+.card.lending .card-back,
+.card.account .card-back {
+  background-color: #026d78ff; /* Use the same color as the back */
+}
+
+.card.legal .card-text,
+.card.lending .card-text,
+.card.account .card-text {
+  background-color: #d3d3d3; /* Grey color */
+}
+.card.legal .card-name,
+.card.lending .card-name,
+.card.account .card-name {
+  background-color: #d3d3d3; /* Grey color */
+}
+.card.legal .card-count,
+.card.lending .card-count,
+.card.account .card-count {
+  background-color: #d3d3d3; /* Grey color */
+}
+
+
+
+

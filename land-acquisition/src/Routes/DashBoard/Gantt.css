@@ -1,0 +1,106 @@
+/* CSS for Gantt Chart and Dashboard */
+.gantt-container {
+  display: flex;
+  height: 100%;
+}
+
+.left-panel {
+  width: 25%;
+  transition: width 0.3s ease;
+  background-color: #f4f4f4;
+  border-right: 1px solid #ddd;
+}
+
+.left-panel.collapsed {
+  width: 0;
+  overflow: hidden;
+}
+
+.right-panel {
+  width: 75%;
+  transition: width 0.3s ease;
+}
+
+.right-panel.expanded {
+  width: 100%;
+}
+
+/* .toggle-button {
+  position: absolute;
+  top: 10px;
+  /* left: 25%; */
+/* background-color: #00575d;
+color: white;
+border: none;
+padding: 10px;
+cursor: pointer;
+transition: left 0.3s ease;
+} */
+
+*/ .left-panel.collapsed~.toggle-button {
+  left: 0;
+}
+
+.task-list-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+}
+
+.task-list-item .task-name {
+  flex: 1;
+  text-align: center;
+}
+
+.task-list-item .task-dates {
+  flex: 1;
+  text-align: left;
+}
+
+.task-list-item .task-dates.end {
+  text-align: right;
+}
+
+.gantt-header {
+  background-color: #00575d;
+  color: white;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+.scroll-container {
+  overflow-x: scroll;
+}
+
+.scrollbar-visible {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f4f4f4;
+}
+
+.scrollbar-visible::-webkit-scrollbar {
+  width: 12px;
+}
+
+.scrollbar-visible::-webkit-scrollbar-track {
+  background: #d97474;
+}
+
+.scrollbar-visible::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 6px;
+  border: 3px solid #c25252;
+}
+
+/* ._34SS0> :not(:first-child) {
+  display: none;
+}
+
+._1nBOt> :not(:first-child) {
+  display: none;
+} */
+
+.hide-not-first-child> :not(:first-child) {
+  display: none;
+}

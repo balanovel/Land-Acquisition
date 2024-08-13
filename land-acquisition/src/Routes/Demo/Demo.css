@@ -1,0 +1,88 @@
+/* Main container styles */
+.task-list-container {
+    background-color: #14b8a6; /* teal-500 */
+    min-height: 100vh;
+    padding: 2rem;
+  }
+  
+  .task-list-content {
+    max-width: 48rem; /* 3xl in Tailwind */
+    margin: 0 auto;
+  }
+  
+  /* Typography */
+  .task-list-title {
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: bold;
+    color: white;
+    margin-bottom: 2rem;
+  }
+  
+  .task-list-subtitle {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 600;
+    color: white;
+    margin-bottom: 1rem;
+  }
+  
+  /* Task item styles */
+  .task-item {
+    background-color: #0f766e; /* teal-700 */
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    color: white;
+    position: relative;
+  }
+  
+  .task-item-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .task-name {
+    font-weight: 600;
+  }
+  
+  .task-dates {
+    font-size: 0.875rem;
+  }
+  
+  .task-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .task-icons > * {
+    margin-left: 0.5rem;
+  }
+  
+  .task-completed-date {
+    font-size: 0.75rem;
+  }
+  
+  /* Color indicators */
+  .task-color-indicators {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+  }
+  
+  .color-indicator {
+    flex: 1;
+    height: 0.25rem;
+  }
+  
+  .color-red { background-color: #ef4444; }
+  .color-yellow { background-color: #eab308; }
+  .color-green { background-color: #22c55e; }
+  .color-blue { background-color: #3b82f6; }
+  
+  /* Utility classes */
+  .space-y-2 > * + * {
+    margin-top: 0.5rem;
+  }
+  

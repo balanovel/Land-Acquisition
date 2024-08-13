@@ -1,0 +1,397 @@
+.draw2_drawer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  /* transform: translateY(100%); */
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  border-radius: 20px 20px 0 0;
+  overflow: scroll;
+  /* display :none; */
+}
+
+
+.draw2_drawer.open {
+  transform: translateY(0);
+}
+.draw2_drawer.close {
+  transform: translateY(100%);
+}
+
+.draw2_drawer-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #ffffff;
+}
+
+.draw2_drawer-close-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  align-self: flex-end;
+  background-color: red;
+  border-radius: 15px;
+  font-size: 15px;
+  cursor: pointer;
+  color: white;
+}
+
+.draw2_drawer-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #ffffff;
+}
+
+
+p {
+  color: white;
+  /* Change text color for <p> elements */
+}
+
+
+
+.demo_example_section:nth-child(1) {
+  background-color: #008080;
+  /* Background color for the first section */
+}
+
+.demo_example_section5 {
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+.demo_example_address-section {
+  background-color: #008080;
+  /* Same background color as other tables */
+  color: white;
+  /* Text color for better readability */
+  margin-bottom: 15px;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.demo_example_address-table {
+  border-collapse: collapse;
+  width: 100%;
+  /* Adjust width as needed */
+  margin-bottom: 20px;
+  /* Space below the table */
+}
+
+.demo_example_address-table th,
+.demo_example_address-table td {
+  border: 1px solid #008080;
+  /* Match the color with existing design */
+  padding: 8px;
+  text-align: center;
+}
+
+.demo_example_address-table th {
+  background-color: #008080;
+  /* Background color to match existing design */
+  color: white;
+}
+
+.demo_example_address-table td.address-cell {
+  text-align: center;
+  /* Align address to the left */
+  min-width: 200px;
+  /* Ensure address cell is wider */
+}
+
+.demo_example_address-table td {
+  min-width: 100px;
+  /* Minimum width for other cells */
+}
+
+.demo_example_section:nth-child(2) {
+  background-color: #008080;
+  /* Light green for split table */
+}
+
+.demo_example_section:nth-child(3) {
+  background-color: #008080;
+  /* Light green for split table */
+}
+
+.demo_example_info-section {
+  display: flex;
+  /* Align elements side by side */
+  justify-content: space-evenly;
+  /* Space between sidebar and info section */
+  margin-bottom: 30px;
+  /* Space between info section and tables */
+}
+
+.demo_example_sidebar {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  /* Space between sidebar and info section */
+}
+
+.demo_example_show-more-button,
+.demo_example_save-button {
+  padding: 10px 20px;
+  color: #008080;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+
+.demo_example_show-more-button {
+  align-self: flex-start;
+  /* Align the button to the left */
+  margin-top: 10px;
+  /* Space between table and button */
+}
+
+.demo_example_save-button {
+  align-self: flex-end;
+  /* Align the button to the right */
+  margin-top: 10px;
+  /* Space between table and button */
+}
+
+/* .demo_example_save-button.bottom-right {
+  position: relative;
+  /* Ensure it follows normal flow */
+/* margin-top: 20px; */
+/* Space between table and button */
+/* } */
+
+.demo_example_map-link-button,
+.demo_example_web-link-button,
+.demo_example_rejected-button,
+.demo_example_reason-button {
+  padding: 10px 20px;
+  color: #008080;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  /* Center text inside the button */
+}
+
+.demo_example_map-link-button {
+  background-color: white;
+  /* Map Link button color */
+}
+
+.demo_example_map-link-button:hover,
+.demo_example_web-link-button:hover,
+.demo_example_rejected-button:hover,
+.demo_example_reason-button:hover,
+.demo_example_show-more-button:hover {
+  background-color: #f0f0f0;
+  /* Slightly darker on hover */
+}
+
+.demo_example_web-link-button,
+.demo_example_rejected-button,
+.demo_example_reason-button,
+.demo_example_show-more-button {
+  background-color: white;
+  /* Web Link button color */
+}
+
+.demo_example_info-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.demo_example_info-row {
+  display: flex;
+  align-items: center;
+  /* Align items vertically in the center */
+  margin-bottom: 10px;
+}
+
+.demo_example_info-row p {
+  margin-right: 10px;
+  /* Space between text and button */
+}
+
+.demo_example_tables-container {
+  /* background-color: #008080; */
+  display: flex;
+  flex-direction: column;
+  /* Stack tables vertically */
+  align-items: center;
+  /* Center tables horizontally */
+  width: 100%;
+  position: relative;
+}
+
+.demo_example_tables-container5 {
+  display: flex;
+  flex-direction: column;
+  /* Stack tables vertically */
+  align-items: center;
+  /* Center tables horizontally */
+  width: 100%;
+  position: relative;
+}
+
+.demo_example_tables-container4 {
+  background-color: #008080;
+  display: flex;
+  flex-direction: column;
+  /* Stack tables vertically */
+  align-items: center;
+  /* Center tables horizontally */
+  width: 100%;
+  position: relative;
+  border-radius: 20px;
+}
+
+
+
+.demo_example_table-map {
+  display: flex;
+  justify-content: space-around;
+  /* Space the two parts */
+  width: 80%;
+  /* Adjust width as needed */
+  margin-bottom: 20px;
+  border-collapse: collapse;
+}
+
+
+
+.demo_example_table-map div {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  /* Each half of the table */
+  border: 1px solid #008080;
+  /* Map Link button color */
+  padding: 8px;
+  box-sizing: border-box;
+  /* Ensure padding is included in width */
+}
+
+.demo_example_table-map div p {
+  margin: 8px 0;
+  /* Space between rows */
+}
+
+.demo_example_table-map div:nth-child(1) {
+  background-color: #008080;
+  /* Map Link button color */
+  color: white;
+}
+
+
+
+.demo_example_table-8x4 {
+  border-collapse: collapse;
+  width: 100%;
+  /* Ensure table takes up full width */
+}
+
+
+.demo_example_table-8x4 td {
+  border: 1px solid #008080;
+  /* Web Link button color */
+  padding: 8px;
+  text-align: center;
+  min-width: 100px;
+  /* Minimum width for cells, adjust as needed */
+  height: 20px;
+}
+
+.demo_example_table-8x45 td {
+  border: 1px solid #008080;
+  /* Web Link button color */
+  padding: 8px;
+  text-align: center;
+  min-width: 100px;
+  /* Minimum width for cells, adjust as needed */
+  height: 20px;
+}
+
+.demo_example_table-8x4 th {
+  /* border: 1px solid #008080; Web Link button color */
+  padding: 8px;
+  text-align: center;
+  min-width: 100px;
+  /* Minimum width for cells, adjust as needed */
+  height: 20px;
+}
+
+.demo_example_table-8x45 th {
+  background-color: #008080;
+  /* Web Link button color */
+  color: white;
+}
+
+.demo_example_table-8x45 {
+  border-collapse: collapse;
+  width: 100%;
+  /* Ensure table takes up full width */
+}
+
+
+.demo_example_table-8x42 td {
+  /* border: 1px solid #008080; Web Link button color */
+  padding: 8px;
+  text-align: center;
+  min-width: 100px;
+  /* Minimum width for cells, adjust as needed */
+  height: 20px;
+}
+
+.demo_example_table-8x42 th {
+  padding: 8px;
+  text-align: center;
+  min-width: 100px;
+  /* Minimum width for cells, adjust as needed */
+  height: 20px;
+}
+
+.demo_example_table-8x42 th {
+  /* background-color: #008080; Web Link button color */
+  color: white;
+}
+
+.demo_example_status-select {
+  padding: 10px;
+  color: #008080;
+  border: none;
+  font-size: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.analysis-heading {
+  position: absolute;
+  top: -47px;
+  left: -21px;
+  background-color: white;
+  color: #008080;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  z-index: 1;
+}

@@ -1,0 +1,598 @@
+.drawer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  border-radius: 20px 20px 0 0;
+  overflow: scroll;
+
+}
+
+/* added color for input fields */
+input.bottom_table_child {
+  color: black;
+}
+
+select.bottom_table_child {
+  color: black;
+}
+
+.drawer.open {
+  transform: translateY(0);
+}
+
+.drawer.closed {
+  transform: translateY(100%);
+}
+
+.drawer-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #ffffff;
+}
+
+.rating-remarks-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.rating-section,
+.remarks-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Adjust as needed */
+}
+
+.rating-item
+ {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  
+}
+.remarks-item{
+  font-size: 20px;
+  cursor: pointer;
+  flex-direction: column;
+  margin: 0 20px;
+  margin-left: 10px;
+  align-items: center;
+  margin-left: 100px;
+  padding-bottom: 10px;
+  padding-top: -10px;
+  flex: 1; /* Space between field and stars */
+}
+
+.rating-item label,
+.remarks-item label {
+  margin-right: 10px;
+  flex: 1;
+  font-size: 16px;
+}
+
+.demo_example_rating-select,
+.demo_example_remarks-select {
+  color: #008080;
+  flex: 1;
+  font-size: medium;
+  height: 30px;
+  /* Adjust the height as needed */
+  width: 50px;
+  /* text-align: center; */
+  /* Adjust the width as needed */
+}
+
+.demo_example_remarks-input {
+  color: #008080;
+  flex: 1;
+  font-size: 15px;
+  height: 27px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  /* text-align: center; */
+  /* Adjust the height as needed */
+  width: 100px;
+  /* Adjust the width as needed */
+}
+
+.bottom_table_child {
+  width: 100%;
+  background: white;
+  border: none;
+  font-size: 15px;
+  text-align: center;
+}
+
+.demo_example_info-row label,
+.rating-section label,
+.remarks-section label {
+  color: white;
+}
+
+/* Close button */
+.drawer-close-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  align-self: flex-end;
+  background-color: red;
+  border-radius: 15px;
+  font-size: 15px;
+  cursor: pointer;
+  color: white;
+}
+
+.drawer-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #ffffff;
+}
+
+
+p {
+  color: white;
+  /* Change text color for <p> elements */
+}
+
+.demo_example_section {
+  margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+  /* Space between sections */
+  padding: 20px;
+  /* Space inside each section */
+  border-radius: 30px;
+  /* Rounded corners */
+}
+
+.demo_example_section:nth-child(1) {
+  background-color: #008080;
+  /* Background color for the first section */
+}
+
+.demo_example_address-section {
+  background-color: #008080;
+  /* Same background color as other tables */
+  color: white;
+  /* Text color for better readability */
+  margin-bottom: 15px;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.demo_example_address-table {
+  border-collapse: collapse;
+  width: 100%;
+  /* Adjust width as needed */
+  margin-bottom: 20px;
+  /* Space below the table */
+}
+
+.demo_example_address-table th,
+.demo_example_address-table td {
+  border: 1px solid #008080;
+  /* Match the color with existing design */
+  padding: 8px;
+  text-align: center;
+}
+
+.demo_example_address-table th {
+  background-color: #008080;
+  /* Background color to match existing design */
+  color: white;
+}
+
+.demo_example_address-table td.address-cell {
+  text-align: center;
+  /* Align address to the left */
+  min-width: 200px;
+  /* Ensure address cell is wider */
+}
+
+.demo_example_address-table td {
+  min-width: 100px;
+  /* Minimum width for other cells */
+}
+
+.demo_example_section:nth-child(2) {
+  background-color: #008080;
+  /* Light green for split table */
+}
+
+.demo_example_section:nth-child(3) {
+  background-color: #008080;
+  /* Light green for split table */
+}
+
+.demo_example_info-section {
+  display: flex;
+  /* Align elements side by side */
+  justify-content: space-evenly;
+  /* Space between sidebar and info section */
+  margin-bottom: 30px;
+  /* Space between info section and tables */
+}
+
+.demo_example_sidebar {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  /* Space between sidebar and info section */
+}
+
+.demo_example_show-more-button,
+.demo_example_save-button {
+  padding: 10px 20px;
+  color: #008080;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+
+.demo_example_show-more-button {
+  align-self: flex-start;
+  /* Align the button to the left */
+  margin-top: 10px;
+  /* Space between table and button */
+}
+
+.demo_example_save-button {
+  align-self: flex-end;
+  margin-top: 10px;
+  /* background-color: white; */
+}
+
+.popup {
+  display: none;
+  /* Default to not display */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.popup_inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  /* Stack children vertically */
+}
+
+
+.popup_inner h3 {
+  margin-bottom: 10px;
+}
+
+.popup_inner label {
+  margin-bottom: 10px;
+  /* Space between labels */
+  display: flex;
+  flex-direction: row;
+  /* Align checkbox and text horizontally */
+  align-items: center;
+  /* Center items vertically */
+}
+
+.star-rating {
+  display: inline-flex;
+  font-size: 24px;
+  /* Adjust as needed */
+  cursor: pointer;
+}
+
+
+
+.star.filled {
+  color: gold;
+  /* Color for filled stars */
+}
+
+.popup_inner button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.demo_example_save-button.bottom-right {
+  position: absolute;
+  margin-top: 10px;
+  /* bottom: 48px;
+  right: 40px; */
+  margin-top: 3px;
+  background-color: #008080;
+  color: white;
+  top: 100px;
+}
+
+.demo_example_add-row-button {
+  padding: 5px 20px;
+  position: absolute;
+  color: #008080;
+  left: 2px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  text-align: center;
+  background-color: white;
+  border: 1px solid #ccc;
+  align-self: flex-start;
+}
+
+.demo_example_map-link-button,
+.demo_example_web-link-button,
+.demo_example_rejected-button,
+.demo_example_reason-button {
+  padding: 10px 20px;
+  color: #008080;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  /* Center text inside the button */
+}
+
+.demo_sale_comps_bottomdraw,
+.demo_sold_comps_bottomdraw {
+  position: absolute;
+  top: -47px;
+  left: 5px;
+  background-color: #008080;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 24px;
+  z-index: 1;
+}
+
+
+.demo_example_map-link-button {
+  background-color: white;
+  /* Map Link button color */
+}
+
+.demo_example_map-link-button:hover,
+.demo_example_web-link-button:hover,
+.demo_example_rejected-button:hover,
+.demo_example_reason-button:hover,
+.demo_example_show-more-button:hover {
+  background-color: #f0f0f0;
+  /* Slightly darker on hover */
+}
+
+.demo_example_web-link-button,
+.demo_example_rejected-button,
+.demo_example_reason-button,
+.demo_example_show-more-button {
+  background-color: white;
+  /* Web Link button color */
+}
+
+.demo_example_info-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.demo_example_info-row {
+  display: flex;
+  align-items: center;
+  /* Align items vertically in the center */
+  margin-bottom: 10px;
+}
+
+.demo_example_info-row p {
+  margin-right: 10px;
+  /* Space between text and button */
+}
+
+.demo_example_tables-container {
+  display: flex;
+  flex-direction: column;
+  /* Stack tables vertically */
+  align-items: center;
+  /* Center tables horizontally */
+  width: 100%;
+  margin-bottom: 50px;
+  /* position: relative; */
+}
+
+.demo_example_table-map {
+  display: flex;
+  justify-content: space-around;
+  /* Space the two parts */
+  width: 80%;
+  /* Adjust width as needed */
+  margin-bottom: 20px;
+  border-collapse: collapse;
+}
+
+.demo_example_table-map div {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  /* Each half of the table */
+  border: 1px solid #008080;
+  /* Map Link button color */
+  padding: 8px;
+  box-sizing: border-box;
+  /* Ensure padding is included in width */
+}
+button.demo_example_submit-button{
+  position: relative;
+  right: 100px;
+}
+
+.demo_example_table-map div p {
+  margin: 8px 0;
+  /* Space between rows */
+}
+
+.demo_example_table-map div:nth-child(1) {
+  background-color: #008080;
+  /* Map Link button color */
+  color: white;
+}
+
+.demo_example_table-map div:nth-child(2) {
+  background-color: #008080;
+  /* Map Link button color */
+  color: white;
+}
+
+.demo_example_table-map div:nth-child(3) {
+  background-color: #008080;
+  /* Map Link button color */
+  color: white;
+}
+
+.demo_example_table-8x4 {
+  border-collapse: collapse;
+  width: 100%;
+  /* Ensure table takes up full width */
+}
+
+.demo_example_table-8x4 th,
+.demo_example_table-8x4 td {
+  border: 1px solid #008080;
+  /* Web Link button color */
+  padding: 8px;
+  text-align: center;
+  min-width: 100px;
+  /* Minimum width for cells, adjust as needed */
+  height: 20px;
+}
+
+.demo_example_table-8x4 th {
+  background-color: #008080;
+  /* Web Link button color */
+  color: white;
+}
+
+.demo_example_status-select {
+  padding: 10px;
+  color: #008080;
+  border: none;
+  font-size: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.rating_field {
+  /* display: inline-flex; */
+  font-size: 20px;
+  cursor: pointer;
+  flex-direction: column;
+  margin: 0 20px;
+  margin-left: 10px;
+  align-items: center;
+  margin-left: 100px;
+  padding-bottom: 10px;
+  padding-top: -10px;
+  flex: 1; /* Space between field and stars */
+
+}
+.star {
+  color: #ccc; /* Default color for unfilled stars */
+  transition: color 0.2s ease-in-out;
+  margin-bottom: 15px;
+}
+.stars{
+   display: flex;
+    direction: ltr;
+    align-items: baseline;
+}
+
+.star-filled {
+  color: gold; /* Color for filled stars */
+}
+.rating_field .star {
+  color: #ccc; /* Default color */
+  transition: color 0.2s, transform 0.2s;
+}
+.rating_field .star.selected {
+  color: #ffcc00; /* Gold color */
+  transform: scale(1.2); /* Slightly bigger on selection */
+}
+.rating_field .star:hover,
+.rating_field .star:hover {
+  color: #ffcc00; /* Gold color on hover */
+}
+.custom-label {
+  font-size: 15px; /* Adjust size as needed */
+  font-weight: bold;
+  color: #ffcc00; /* Gold color */
+}
+
+.RejectreasonInput {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.RejectreasonInput  ::placeholder {
+  color: rgb(6, 84, 92, 0.8);
+  }
+
+.RejectreasonInput input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.RejectreasonInput button {
+  padding: 10px 20px;
+  color: #160202;
+  background-color: #d5f1f1;
+  /* Change this color if needed */
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  width: fit-content;
+  margin-left: 35%;
+}
+
+.RejectreasonInput button:hover {
+  background-color: #dff1f1;
+  /* Darker shade for hover effect */
+}

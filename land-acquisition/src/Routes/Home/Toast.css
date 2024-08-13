@@ -1,0 +1,47 @@
+/* Toast.css */
+.toast {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    /* Flexbox to arrange sections horizontally */
+    width: 100%;
+    /* Full width of the card */
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
+}
+
+.toast-section {
+    flex: 1;
+    /* Each section takes equal width */
+    margin: 0 5px;
+    /* Space between sections */
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    /* Show pointer cursor on hover */
+    text-align: center;
+    /* Center text */
+}
+
+.pending {
+    background-color: green;
+    color: white;
+    font-weight: bold;
+}
+
+.completed {
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+}
+
+.cancelled {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
