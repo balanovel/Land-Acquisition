@@ -36,9 +36,17 @@ const SearchBar = ({ query, onQueryChange }) => (
             placeholder="Search..."
             className="search-bar"
         />
-        <FaSearch className="search-icon" />
     </div>
 );
+
+const ProgressBar = ({ isLoading }) => (
+    isLoading ? (
+        <div className="progress-bar">
+            <div className="progress-bar-inner" style={{ width: '100%' }}></div>
+        </div>
+    ) : null
+);
+
 
 const ITEMS_PER_PAGE_OPTIONS = [5, 10, 15, 20, 25, 30];
 
@@ -72,6 +80,8 @@ function Screening() {
     const [showUser, setShowUser] = useState(false);
     const [status, setStatus] = useState('Yet to be Screened');
     const [showNotifications, setShowNotifications] = useState(false);
+    const [data, setData] = useState([]);
+
 
 
 
@@ -102,6 +112,7 @@ function Screening() {
     };
 
     const handleCardClick = (cardType) => {
+
         setIsLoading(true); // Start loading right at the start of the function
         setHighlightedCard(cardType);
         setHighlightedAdditionalCard(null); // Reset additional card on main card click
@@ -206,7 +217,7 @@ function Screening() {
     const handlePageChange = (newPage) => {
         if (newPage < 1 || newPage > totalPages) return;
         setCurrentPage(newPage);
-        setIsLoading(true); // Start loading
+        setIsLoading(true); 
 
         fetchGridData(newPage, expandedCard, highlightedAdditionalCard).finally(() => setIsLoading(false));
     };
@@ -214,8 +225,10 @@ function Screening() {
 
     useEffect(() => {
         console.log('Fetching data counts and grid data');
+        setIsLoading(true); // Start loading
+
         const fetchDataCounts = async () => {
-            setIsLoading(true); // Start loading
+            setIsLoading(true)
             console.log('Fetching data counts and grid data');
 
 
@@ -347,13 +360,17 @@ function Screening() {
     )
 
     return (
+        
         <div>
+
             <div className='screening'>
                 <IoMdHome className='icon icon-left' onClick={handleHomeClick} />
                 <h1 className='screen_head'>Screening</h1>
                 <HiBellAlert className='icon icon-right-notification' onClick={handleNotification} />
                 <IoPersonCircleOutline className='icon icon-right-profile' onClick={handleUser} />
             </div>
+            <ProgressBar isLoading={isLoading} />
+
             <div className='card-container'>
                 <ScreenCard
                     mainText="TOTAL LOTS"
@@ -367,12 +384,15 @@ function Screening() {
                     onClick={() => handleCardClick('yetToBeScreened')}
                     isHighlighted={highlightedCard === 'yetToBeScreened'}
                 />
-                <ScreenCard
-                    mainText="QUALIFIED"
-                    subText={qualified}
-                    onClick={() => handleCardClick('qualified')}
-                    isHighlighted={highlightedCard === 'qualified'}
-                />
+               <ScreenCard
+  mainText="QUALIFIED"
+  subText={qualified}
+  onClick={() => {
+    console.log('Displaying QUALIFIED data:', qualified);
+    handleCardClick('qualified');
+  }}
+  isHighlighted={highlightedCard === 'qualified'}
+/>
                 <ScreenCard
                     mainText="REJECTED"
                     subText={rejected}
@@ -457,22 +477,7 @@ function Screening() {
                         Next
                     </button>
                 </div>
-                {isLoading ? (
-                    <div className="loading-overlay">
-                        <Oval
-                            height={100}
-                            width={100}
-                            color="#4fa94d"
-                            wrapperStyle={{}}
-                            wrapperClass=""
-                            visible={true}
-                            ariaLabel='oval-loading'
-                            secondaryColor="#4fa94d"
-                            strokeWidth={2}
-                            strokeWidthSecondary={2}
-                        />
-                    </div>
-                ) : (
+                
                     <>
                         <div className='grid-column'>
                             <div className='grid-header'>
@@ -511,7 +516,7 @@ function Screening() {
                             ))}
                         </div>
                     </>
-                )}
+                
             </div>
             {isDrawerOpen && <BottomDrawer isOpen={isDrawerOpen} onClose={toggleDrawer} data={drawerData} />}
             {showUser && <UserProfile showUser={showUser} setShowUser={setShowUser} />}

@@ -14,6 +14,7 @@ import UserProfile from '../UserProfile/UserProfile'; //logout option
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify'; // Default import
 import 'react-toastify/dist/ReactToastify.css'; // Import CSS
+import { FaSearch } from 'react-icons/fa';
 
 
 function ListItem({ item, toggleState, handleToggle, handleAttachmentClick, handleQuoteClick }) {
@@ -60,6 +61,9 @@ function Sourcing() {
     const [showUser, setShowUser] = useState(false); // setting logout option 
     const [showSubmitAnimation, setShowSubmitAnimation] = useState(false);
     const [showTickMark, setShowtickmark] = useState(false);
+    const [sourcingsearch, setsourcingSearch] = useState('');
+    const [showNotifications, setShowNotifications] = useState(false);
+    const [rows, setRows] = useState([]);
     // Track the submit animation
     const fileInputRef = useRef(null);
     const navigate = useNavigate();
@@ -76,6 +80,22 @@ function Sourcing() {
             { toastId: "error" }
         );
     };
+
+    const handleNotification = () => (
+        setShowNotifications(!showNotifications)
+    )
+
+    const addRow = () => {
+        // Add a new empty row to the rows array
+        setRows(prevRows => [...prevRows, {
+            id: prevRows.length + 1,
+            task_name: '',
+            remarks: '',
+            attach: '',
+            task_status: 'Pending'
+        }]);
+    };
+
 
 
     const logged_user = async () => {
@@ -138,6 +158,7 @@ function Sourcing() {
                 }), {}));
             } catch (error) {
                 setErrorMessage('Error fetching data: ' + error.message);
+                handleError('Error fetching data: ' + error.message)
             }
         };
 
@@ -271,8 +292,10 @@ function Sourcing() {
                 remarks: quoteComments[currentItemKey] || '' // Update remarks
             }
         }));
-        // handleSuccess('Sucessfully added comment')
-        setShowQuoteModal(false);
+        handleSuccess('Sucessfully added comment')
+        setTimeout(() => {
+            setShowQuoteModal(false);
+        }, 600);
 
     };
 
@@ -342,6 +365,28 @@ function Sourcing() {
                 <IoMdHome className='scrn_icon scrn_icon-left home-icon' onClick={handleHomeClick} />
                 <h1 className='scrn_heading'>SOURCING</h1>
                 <IoPersonCircleOutline className='scrn_icon scrn_icon-person profile-icon' onClick={handleUser} />
+                <HiBellAlert style={{ width: '50px', height: '40px', color: 'white', position: 'absolute', right: '80px', top: '55px', cursor: 'pointer' }} onClick={handleNotification} />
+            </div>
+            <div style={{ position: 'absolute', right: '30px', width: '16%', borderRadius: "20px", display: 'flex', alignItems: 'center', borderColor: '#026d78ff', gap: '8px', background: 'white', justifyContent: 'space-around', paddingRight: '15px' }}>
+                <input style={{
+                    background: 'white',
+                    color: 'black',
+                    height: '2rem',
+                    width: '9rem',
+                    border: 'none',
+                    padding: '5px',
+                    borderRadius: "20px"
+                }}
+                    onChange={(e) => setsourcingSearch(e.target.value)}
+                />
+                <FaSearch
+                    style={{
+                        width: '30px',
+                        height: '30px',
+                        color: '#008080',
+                    }}
+                    onClick={sourcingsearch}
+                />
             </div>
             <div className='source-content'>
                 {errorMessage && <div className='error'>{errorMessage}</div>}
@@ -356,13 +401,23 @@ function Sourcing() {
                             handleQuoteClick={handleQuoteClick}
                         />
                     ))}
-                </ul>
-                <button className='submit-button' onClick={handleSubmit}>Submit</button>
-                {showSubmitAnimation && (
-                    <div className='submit-animation'>
-                        <div className="loading-spinner"></div>
+                    <div style={{ display: 'flex', alignItems: "center", justifyContent: 'center' }}>
+                        <div style={{ display: 'flex', justifyContent: 'center', position: 'relative', top: '-30px' }}>
+                            <button style={{ left: "415px", borderRadius: "10px" }} className="sourcing_add-row-button" onClick={addRow}>Add Task</button>
+                        </div>
+                        <div style={{ width: '44%', display: 'flex' }}>
+                            <button className='submit-button' onClick={handleSubmit}>Submit</button>
+                            {showSubmitAnimation && (
+                                <div className='submit-animation'>
+                                    <div className="loading-spinner"></div>
+                                </div>
+                            )}
+                        </div>
                     </div>
-                )}
+                </ul>
+
+
+
                 {showTickMark && <div className='tick-mark show'><FaCheck /></div>}
             </div>
             {showAttachmentModal && (
@@ -391,6 +446,8 @@ function Sourcing() {
                     </div>
                 </div>
             )}
+
+
             {showQuoteModal && (
                 <div className='modal remarks'>
                     <div className='modal-content remarks'>
@@ -416,6 +473,7 @@ function Sourcing() {
             {showUser && <UserProfile showUser={showUser} setShowUser={setShowUser} />}
             <ToastContainer /> {/* Add ToastContainer here */}
         </div>
+
     );
 }
 
