@@ -13,6 +13,10 @@ import './Acquisitions.css';
 import { ToastContainer, toast } from 'react-toastify'; // Default import
 import 'react-toastify/dist/ReactToastify.css'; // Import CSS
 
+//icon
+import { BiSearchAlt } from "react-icons/bi";
+import { FaFilter } from "react-icons/fa6";
+
 
 
 import styled from 'styled-components';
@@ -56,7 +60,7 @@ const Icon = styled.div`
 `;
 
 const AssingedDiv = styled.div`
-min-width: 50px;
+    min-width: 50px;
     left: 2rem;
     top: -10px;
     position: absolute;
@@ -64,6 +68,22 @@ min-width: 50px;
     background: #00575d;
     border-radius: 99px;
 `
+// Styled container for the chat
+const DivFilter = styled.div`
+    position: absolute;
+    right: 24%;
+    padding:1rem;
+    border-radius: 1rem;
+    background-color: #00575d;
+    border-top-right-radius: 0px;
+    // height: 10rem;
+    width: 19%;
+    transform: translateX(100%);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+
+`;
+
+
 
 function AcquisitionPopUp() {
     const location = useLocation();
@@ -96,6 +116,7 @@ function AcquisitionPopUp() {
     const [taskPriority, setTaskPriority] = useState('');
     const [toggleStates, setToggleStates] = useState('');
     const [subTaskListValue, setSubTaskListValue] = useState([]);
+    const [filterDiv, setFilterDiv] = useState(false)
     let teamName = localStorage.getItem('team')
     localStorage.setItem('stage', "Pre Proposal");
 
@@ -262,6 +283,11 @@ function AcquisitionPopUp() {
         setActiveChatName(name);
         setAsssinged(true)
     }
+
+    //Filter Div 
+    const handlefilterDiv = () => {
+        setFilterDiv(!filterDiv)
+    }
     const mainBackground = {
         'Not yet started': '#f00',
         'In progress': '#f2ff00',
@@ -283,22 +309,7 @@ function AcquisitionPopUp() {
                     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
                 }}
             >
-                <button
-                    style={{
-                        position: 'absolute',
-                        top: '1rem',
-                        right: '1.5rem',
-                        borderRadius: '38px',
-                        padding: '0.3rem 1.2rem',
-                        backgroundColor: '#ff0000',
-                        color: '#fff',
-                        border: 'none',
-                        cursor: 'pointer',
-                    }}
-                    onClick={() => navigate(-1)}
-                >
-                    Back
-                </button>
+
                 <div style={{ display: 'flex', height: '100%', opacity: showChat || showModal ? 0.5 : 1 }}>
                     <div style={{
                         width: '30%',
@@ -372,14 +383,68 @@ function AcquisitionPopUp() {
                     <div
                         style={{
                             width: '75%',
-                            padding: '1rem',
+                            padding: '0rem 1rem 2rem 1rem',
                             boxSizing: 'border-box',
                             backgroundColor: "#0d828e",
                             color: 'white',
                             overflow: 'auto'
                         }}
                     >
-                        <h4>{teamName}</h4>
+                        <div style={{ position: 'sticky', top: '0', zIndex: '99', background: '#0d828e', paddingTop: '1rem', paddingBottom: '1rem' }}>
+                            <h4>{teamName}</h4>
+                            <button
+                                style={{
+                                    position: 'absolute',
+                                    top: '1rem',
+                                    right: '1.5rem',
+                                    borderRadius: '38px',
+                                    padding: '0.3rem 1.2rem',
+                                    backgroundColor: '#ff0000',
+                                    color: '#fff',
+                                    border: 'none',
+                                    cursor: 'pointer',
+                                }}
+                                onClick={() => navigate(-1)}
+                            >
+                                Back
+                            </button>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                <div style={{ gap: '10px', alignItems: 'center', justifyContent: 'left', display: 'flex', paddingBottom: '10px', width: '20%' }}>
+                                    {/* <h4>Task Name : </h4> */}
+                                    <input
+                                        type="text"
+                                        placeholder="Task Name..."
+                                        // value={searchTerm}
+                                        required
+                                        // onChange={(e) => setSearchTerm(e.target.value)}
+                                        style={{ background: "white", color: 'black', height: '1rem', width: '100%', borderRadius: '0.5rem', padding: '0.5rem' }}
+                                    />
+                                    <BiSearchAlt
+                                        size={24}
+                                        style={{
+                                            color: 'black',
+                                            cursor: 'pointer',
+                                            position: "relative",
+                                            right: '35px'
+                                        }} />
+                                </div>
+                                <div style={{ paddingRight: '1rem' }}>
+                                    <FaFilter
+                                        onClick={handlefilterDiv} style={{ cursor: 'pointer' }} />
+                                    {filterDiv && <DivFilter >
+                                        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '10px' }}>
+                                            <input type="text" placeholder="Task Name..." style={{ width: '40%', backgroundColor: '#77c5d0', color: 'black' }}></input>
+                                            <input type="text" placeholder="Status..." style={{ width: '40%', backgroundColor: '#77c5d0', color: 'black' }}></input>
+                                            <input type="text" placeholder="Start Date..." style={{ width: '40%', backgroundColor: '#77c5d0', color: 'black' }}></input>
+                                            <input type="text" placeholder="End Date..." style={{ width: '40%', backgroundColor: '#77c5d0', color: 'black' }}></input>
+                                        </div>
+                                        <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', paddingTop: '20px' }}>
+                                            <button style={{ backgroundColor: '#77c5d0', color: '#0b575d' }}>Filter</button>
+                                        </div>
+                                    </DivFilter>}
+                                </div>
+                            </div>
+                        </div>
                         {taskData?.length !== 0 ? (
                             taskData?.map((task, index) => (
                                 <div key={index}>

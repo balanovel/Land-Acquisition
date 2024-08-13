@@ -152,3 +152,7 @@ button.btn {
     border-color: #333 transparent transparent transparent;
     z-index: 10;
 }
+
+::placeholder {
+    color: #0b575d;
+}

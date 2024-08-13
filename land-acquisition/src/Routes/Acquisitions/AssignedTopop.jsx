@@ -24,7 +24,7 @@ const TaskOpacity = styled.div`
     opacity: 1;
     justify-content: center;
     align-items: center;
-    z-index: 1;
+    z-index: 100;
 `;
 
 const DropdownContainer = styled.div`

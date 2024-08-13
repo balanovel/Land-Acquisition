@@ -497,9 +497,9 @@ function BottomDraw2(Data) {
                                     onClick={handleToggleTable}>
                                     {showTable ? 'Show Less' : 'Show Comps'}
                                 </button>
-                                {!showTable && (
+                                {/* {!showTable && (
                                     <button className="demo_example_save-button">Save</button>
-                                )}
+                                )} */}
                             </div>
                         </div>
 
@@ -947,8 +947,13 @@ function BottomDraw2(Data) {
                                     >
                                         {showAnalysisTable ? 'Show Less' : 'Show Comps'}
                                     </button> */}
-                                    {!showAnalysisTable && <button className="demo_example_save-button">Save</button>}
-                                </div>
+                                    {!showAnalysisTable && <button className="demo_example_save-button" onClick={handleSubmit}>Save</button>
+                                    {showSubmitAnimation && (
+                                        <div className='submit-animation'>
+                                            <div className="loading-spinner"></div>
+                                        </div>
+
+                                </div>}}
                             {/* </div> */}
                             {/* {showAnalysisTable && (
                                 <div className="demo_example_section5">
