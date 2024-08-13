@@ -131,7 +131,9 @@ function AddNewTask({ setAddingTask }) {
         try {
             await axios.post("http://10.10.0.33/api/method/task_create", { data: formObj }, { withCredentials: true });
             handleSuccess('Task added successfully!');
-            // Optionally reset form or navigate away
+            setTimeout(() => {
+                navigate(-1)
+            }, 2000)
         } catch (error) {
             handleError('Failed to add task. Please try again.', error.response.data.exception);
             console.error(error.response.data.exception);
